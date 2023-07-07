@@ -3,8 +3,34 @@ import '../styles/Navbar.css'
 import { FaUserCircle } from 'react-icons/fa';
 import { IoLocationOutline } from 'react-icons/io5';
 import { BsSearch } from 'react-icons/bs';
+import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ products }) => {
+
+    console.log(products)
+    const [search, setSearch] = useState('');
+    const [searchResult, setSearchResult] = useState([]);
+
+    const getSearachTerm = (event) => {
+        const text = event.target.value;
+        searchHandler(text);
+    }
+
+    const searchHandler = (searchTerm) => {
+        setSearch(searchTerm);
+        if (search !== '') {
+            const newList = products?.filter(product => {
+                return Object.values(product)
+                    .join(' ')
+                    .toLowerCase()
+                    .includes(search.toLowerCase());
+            })
+            setSearchResult(newList);
+        }
+        else {
+            setSearchResult(products);
+        }
+    }
     return (
         <div className="nav__container">
             <div className="signIn__container flex justify-between h-16 items-center">
@@ -25,7 +51,12 @@ const Navbar = () => {
                     <button className="flex items-center gap-2 active:text-white bg-orange-300 rounded px-3 py-2"><span className="signIn__icon"><IoLocationOutline /></span>Dhaka, 1212</button>
                 </div>
                 <div className="lg:w-1/4 sm:w-1/2  relative flex items-center">
-                    <input className="w-full h-10 rounded-lg bg-slate-50 p-2 border border-slate-400 outline-none" placeholder="search" type="text" />
+                    <input className="w-full h-10 rounded-lg bg-slate-50 p-2 border border-slate-400 outline-none"
+                        placeholder="search"
+                        type="text"
+                        value={search}
+                        onChange={getSearachTerm}
+                        id="simple-search" />
                     <span className="text-xl absolute right-2 text-slate-500"><BsSearch /></span>
                 </div>
             </div>

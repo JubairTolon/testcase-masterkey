@@ -1,5 +1,6 @@
 import '../styles/Hotdeals.css'
 import SinglePoduct from './SinglePoduct';
+import '../styles/Hotdeals.css'
 
 
 const Hotdeals = ({ products }) => {
