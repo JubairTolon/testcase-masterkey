@@ -9,7 +9,7 @@ const Home = () => {
         const dataFetch = async () => {
             const data = await (
                 await fetch(
-                    "https://api.hiring.masterkey.tech/api/v1/products?product_type=Today’s hot deals"
+                    "https://api.hiring.masterkey.tech/api/v1/products?product_type=hot deals for you"
                 )
             ).json();
 
