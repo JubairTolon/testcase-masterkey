@@ -2,7 +2,7 @@
 
 const SinglePoduct = ({ product }) => {
     return (
-        <div className="block">
+        <div className="block cursor-pointer">
             <img src={product.product_img} alt="" />
             <h1>{product.product_name}</h1>
             <div className="flex justify-between mt-2">
