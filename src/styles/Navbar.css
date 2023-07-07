@@ -1,0 +1,31 @@
+.nav__container {}
+
+.signIn__container {
+    border-bottom: 1px solid #808080;
+}
+
+.signIn__btn {
+    font-size: 16px;
+}
+
+.signIn__icon {
+    font-size: 24px;
+}
+
+.nev__menus {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    /* column-gap: 25px; */
+}
+
+.menu__item {
+    text-decoration: none;
+    font-size: 16px;
+    color: #606060;
+
+}
+
+.menu__item:hover {
+    color: rgba(255, 105, 50, 0.915);
+}
